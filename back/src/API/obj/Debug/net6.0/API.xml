@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.InscricaoController.Post(APP.DTOS.InscricaoDto)">
+            <summary>
+            Insere Inscricao
+            </summary>
+            <param name="model">DTO de Inscricao</param>
+            <returns>DTO da Inscricao Inserida</returns>       
+        </member>
+        <member name="M:API.Controllers.InscricaoController.Put(APP.DTOS.InscricaoDto)">
+            <summary>
+            Atualiza Inscricao
+            </summary>
+            <param name="model">DTO de Inscricao</param>
+            <returns>DTO Inscricao atualizada</returns>
+        </member>
+        <member name="M:API.Controllers.InscricaoController.Delete(System.Int32)">
+            <summary>
+            Exclui Inscricao com id Informado
+            </summary>
+            <param name="id">ID da Inscricao</param>
+            <returns>string : Deletado</returns>
+        </member>
+        <member name="M:API.Controllers.InscritoController.Post(APP.DTOS.InscritoDto)">
+            <summary>
+            Insere Inscrito
+            </summary>
+            <param name="model">DTO de Inscrito</param>
+            <returns>DTO da Inscrito Inserida</returns>       
+        </member>
+        <member name="M:API.Controllers.InscritoController.Put(APP.DTOS.InscritoDto)">
+            <summary>
+            Atualiza Inscrito
+            </summary>
+            <param name="model">DTO de Inscrito</param>
+            <returns>DTO Inscrito atualizada</returns>
+        </member>
+        <member name="M:API.Controllers.InscritoController.Delete(System.Int32)">
+            <summary>
+            Exclui Inscrito com id Informado
+            </summary>
+            <param name="id">ID da Inscrito</param>
+            <returns>string : Deletado</returns>
+        </member>
+        <member name="M:API.Controllers.InstrutorController.Post(APP.DTOS.InstrutorDto)">
+            <summary>
+            Insere Instrutor
+            </summary>
+            <param name="model">DTO de Instrutor</param>
+            <returns>DTO da Instrutor Inserida</returns>       
+        </member>
+        <member name="M:API.Controllers.InstrutorController.Put(APP.DTOS.InstrutorDto)">
+            <summary>
+            Atualiza Instrutor
+            </summary>
+            <param name="model">DTO de Instrutor</param>
+            <returns>DTO Instrutor atualizada</returns>
+        </member>
+        <member name="M:API.Controllers.InstrutorController.Delete(System.Int32)">
+            <summary>
+            Exclui Instrutor com id Informado
+            </summary>
+            <param name="id">ID da Instrutor</param>
+            <returns>string : Deletado</returns>
+        </member>
+        <member name="M:API.Controllers.LiveController.Post(APP.DTOS.LiveDto)">
+            <summary>
+            Insere Live
+            </summary>
+            <param name="model">DTO de Live</param>
+            <returns>DTO da Live Inserida</returns>       
+        </member>
+        <member name="M:API.Controllers.LiveController.Put(APP.DTOS.LiveDto)">
+            <summary>
+            Atualiza Live
+            </summary>
+            <param name="model">DTO de Live</param>
+            <returns>DTO Live atualizada</returns>
+        </member>
+        <member name="M:API.Controllers.LiveController.Delete(System.Int32)">
+            <summary>
+            Exclui Live com id Informado
+            </summary>
+            <param name="id">ID da Live</param>
+            <returns>string : Deletado</returns>
+        </member>
+        <member name="M:API.Controllers.PessoaController.Post(APP.DTOS.PessoaDto)">
+            <summary>
+            Insere Pessoa
+            </summary>
+            <param name="model">DTO de Pessoa</param>
+            <returns>DTO da Pessoa Inserida</returns>       
+        </member>
+        <member name="M:API.Controllers.PessoaController.Put(APP.DTOS.PessoaDto)">
+            <summary>
+            Atualiza Pessoa
+            </summary>
+            <param name="model">DTO de Pessoa</param>
+            <returns>DTO Pessoa atualizada</returns>
+        </member>
+        <member name="M:API.Controllers.PessoaController.Delete(System.Int32)">
+            <summary>
+            Exclui Pessoa com id Informado
+            </summary>
+            <param name="id">ID da Pessoa</param>
+            <returns>string : Deletado</returns>
+        </member>
+    </members>
+</doc>

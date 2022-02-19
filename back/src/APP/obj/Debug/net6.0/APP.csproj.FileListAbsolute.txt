@@ -1,0 +1,17 @@
+D:\evandro\Repositorio\Lives\back\src\APP\bin\Debug\net6.0\APP.deps.json
+D:\evandro\Repositorio\Lives\back\src\APP\bin\Debug\net6.0\APP.dll
+D:\evandro\Repositorio\Lives\back\src\APP\bin\Debug\net6.0\ref\APP.dll
+D:\evandro\Repositorio\Lives\back\src\APP\bin\Debug\net6.0\APP.pdb
+D:\evandro\Repositorio\Lives\back\src\APP\obj\Debug\net6.0\APP.csproj.AssemblyReference.cache
+D:\evandro\Repositorio\Lives\back\src\APP\obj\Debug\net6.0\APP.GeneratedMSBuildEditorConfig.editorconfig
+D:\evandro\Repositorio\Lives\back\src\APP\obj\Debug\net6.0\APP.AssemblyInfoInputs.cache
+D:\evandro\Repositorio\Lives\back\src\APP\obj\Debug\net6.0\APP.AssemblyInfo.cs
+D:\evandro\Repositorio\Lives\back\src\APP\obj\Debug\net6.0\APP.csproj.CoreCompileInputs.cache
+D:\evandro\Repositorio\Lives\back\src\APP\obj\Debug\net6.0\APP.dll
+D:\evandro\Repositorio\Lives\back\src\APP\obj\Debug\net6.0\ref\APP.dll
+D:\evandro\Repositorio\Lives\back\src\APP\obj\Debug\net6.0\APP.pdb
+D:\evandro\Repositorio\Lives\back\src\app\bin\Debug\net6.0\Data.dll
+D:\evandro\Repositorio\Lives\back\src\app\bin\Debug\net6.0\Domain.dll
+D:\evandro\Repositorio\Lives\back\src\app\bin\Debug\net6.0\Domain.pdb
+D:\evandro\Repositorio\Lives\back\src\app\bin\Debug\net6.0\Data.pdb
+D:\evandro\Repositorio\Lives\back\src\app\obj\Debug\net6.0\APP.csproj.CopyComplete
