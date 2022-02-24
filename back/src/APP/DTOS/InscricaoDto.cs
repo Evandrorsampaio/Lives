@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Domain.Enum;
+using Domain.Utils;
 
 namespace APP.DTOS
 {
@@ -25,6 +25,17 @@ namespace APP.DTOS
         [Required(ErrorMessage = "{0} é obrigatório.")]
         public int idInscrito { get; set; }
         public InscritoDto? inscrito { get; set; }
+
+        public string codigoBoleto {
+            
+            get{
+
+                Boleto boleto = new Boleto(valor, vencimento);
+                return boleto.getCodigoPagamento();
+            
+            }
+        }
+
     }
 
 }

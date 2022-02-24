@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Domain.Enum;
+using Domain.Utils;
 
 namespace Domain.Entities
 {
@@ -25,5 +25,16 @@ namespace Domain.Entities
         [ForeignKey("inscrito")]
         public int idInscrito { get; set; }
         public InscritoEntity? inscrito { get; set; }
+
+        [NotMapped]
+        public string codigoBoleto {
+            
+            get{
+
+                Boleto boleto = new Boleto(valor, vencimento);
+                return boleto.getCodigoPagamento();
+            
+            }
+        }
     }
 }

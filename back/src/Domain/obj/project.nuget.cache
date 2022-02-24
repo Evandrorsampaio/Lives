@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b0txED84GLpXGrkkt9tmF2mrJ3kVGV3DPrh6PbQfpI84UMWWiPAyfWR7VDw9B4jnB2XX0XbMD3KS1/IjYn3p3Q==",
+  "dgSpecHash": "zNt8tqB2nWlOOwFx9kJGqZggTsIjCSxEsXvUc03KiW7LUWASJYDKjbFbmu8ljL8WQ14dHjo6/z77vna4fC8RkA==",
   "success": true,
-  "projectFilePath": "D:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj",
+  "projectFilePath": "d:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
