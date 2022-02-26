@@ -17,8 +17,8 @@ namespace Data.Repository
         public async Task<InstrutorEntity[]> GetAllAsync()
         {
             IQueryable<InstrutorEntity> query = _context.Instrutores.AsNoTracking();
-
-                query = query.OrderBy(i => i.pessoa.nome);
+                query = query.Include(i => i.pessoa)
+                            .OrderBy(i => i.pessoa.nome);
 
                 return await query.ToArrayAsync();     
         }
@@ -27,7 +27,9 @@ namespace Data.Repository
         {
                 IQueryable<InstrutorEntity> query = _context.Instrutores.AsNoTracking();
 
-                query = query.Where(i => i.pessoa.email == email );
+                    query = query.Include(i => i.pessoa)
+                                .Include(i => i.lives)
+                                .Where(i => i.pessoa.email == email );
 
                 return await query.FirstOrDefaultAsync(); 
         }
@@ -36,7 +38,9 @@ namespace Data.Repository
         {
                 IQueryable<InstrutorEntity> query = _context.Instrutores.AsNoTracking();
 
-                query = query.Where(a => a.id == id );
+                query = query.Include(i => i.pessoa)
+                            .Include(i => i.lives)
+                            .Where(a => a.id == id );
 
                 return await query.FirstOrDefaultAsync(); 
         }

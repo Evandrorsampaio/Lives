@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DemoMaterialModule } from '../demo-material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartistModule } from 'ng-chartist';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { CadastroComponent } from './Cadastro/Cadastro.component';
@@ -14,10 +14,10 @@ const instrutorRoutes: Routes = [
 
   { path: '', component: InstrutorComponent },
 
-  { path: 'cadastro', component: CadastroComponent, },
-
-  { path: 'cadastro/:id', component: CadastroComponent }
-
+  { path: 'cadastro', component: CadastroComponent,
+    children: [
+      { path: ':id', component: CadastroComponent }
+    ]},
 ];
 
 @NgModule({
@@ -30,8 +30,11 @@ const instrutorRoutes: Routes = [
     FormsModule,
     MatListModule,
     MatCardModule,
+    ReactiveFormsModule,
     RouterModule.forChild(instrutorRoutes),
   ],
-  declarations: [InstrutorComponent, CadastroComponent]
+  declarations: [InstrutorComponent, CadastroComponent],
+  bootstrap: [InstrutorComponent, CadastroComponent]
+
 })
 export class InstrutorModule { }

@@ -11,23 +11,23 @@ export class InstrutorService {
   baseURL = 'https://localhost:7009/api/Instrutor';
   constructor(private http: HttpClient) { }
 
-  public getInstrutores(): Observable<Instrutor[]>{
+  public getAll(): Observable<Instrutor[]>{
     return this.http.get<Instrutor[]>(this.baseURL);
   }
 
-  public getInstrutorById(id: number ): Observable<Instrutor>{
+  public getById(id: number ): Observable<Instrutor>{
     return this.http.get<Instrutor>(`${this.baseURL}/${id}`);
   }
 
-  public postInstrutor(instrutor: Instrutor ): Observable<Instrutor>{
+  public post(instrutor: Instrutor ): Observable<Instrutor>{
     return this.http.post<Instrutor>(this.baseURL, instrutor);
   }
 
-  public putInstrutor( instrutor: Instrutor): Observable<Instrutor[]>{
+  public put( instrutor: Instrutor): Observable<Instrutor[]>{
     return this.http.put<Instrutor[]>(`${this.baseURL}`, instrutor);
   }
 
-  public deleteInstrutor(id: number): Observable<any>{
+  public delete(id: number): Observable<any>{
     return this.http.delete<string>(`${this.baseURL}/${id}`);
   }
 

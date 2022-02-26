@@ -1,65 +1,65 @@
-<mat-card>
-  <mat-tab-group>
-    <mat-tab label="Cadastro do Instrutor Fulano de tal">
-      <mat-card-content>
-        <!-- ============================================================== -->
-        <!-- column -->
-        <!-- ============================================================== -->
-        <form class="basic-form">
-          <div fxLayout="row wrap">
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <mat-form-field>
-                <input matInput placeholder="Nome">
-              </mat-form-field>
+<form>
+
+  <mat-card [formGroup]="form">
+
+    <mat-tab-group>
+      <mat-tab label="Cadastro do Instrutor {{form.value.pessoa.nome}}">
+        <mat-card-content>
+          <fieldset class="basic-form" formGroupName="pessoa">
+            <div fxLayout="row wrap">
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100">
+                <mat-form-field>
+                  <input matInput placeholder="Nome" formControlName="nome">
+                </mat-form-field>
+              </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100">
+                <mat-form-field>
+                  <input matInput placeholder="e-Mail" type="email" formControlName="email">
+                </mat-form-field>
+              </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100" >
+                <mat-form-field>
+                  <input matInput placeholder="Instagram" formControlName="instagram" >
+                </mat-form-field>
+              </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100">
+                <mat-form-field>
+                  <input matInput placeholder="Nascimento" type="date" formControlName="dtNascimento">
+                </mat-form-field>
+              </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100">
+                <button mat-raised-button color="primary">Gravar</button>
+              </div>
             </div>
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <mat-form-field>
-                <input matInput placeholder="e-Mail" type="email">
-              </mat-form-field>
-            </div>
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <mat-form-field>
-                <input matInput placeholder="Instagram" >
-              </mat-form-field>
-            </div>
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <mat-form-field>
-                <input matInput placeholder="Nascimento" type="date">
-              </mat-form-field>
-            </div>
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <button mat-raised-button color="primary">Gravar</button>
-            </div>
-          </div>
-        </form>
-      </mat-card-content>
-    </mat-tab>
-    <mat-tab label="Lives ministradas">
-      <mat-card-content>
-        <div class="d-flex no-blcok">
-          <div fxFlex.gt-sm="50%" >
-            <mat-card>
+          </fieldset>
+        </mat-card-content>
+      </mat-tab>
+      <mat-tab label="Lives ministradas" *ngIf=" instrutor.lives.length > 0 " >
+        <mat-card-content>
+          <div class="d-flex no-blcok">
+            <div fxFlex.gt-sm="50%" *ngFor="let live of instrutor.lives">
+              <mat-card>
                 <mat-card-content>
-                  <mat-card-title>Net 6 + EF Core</mat-card-title>
+                  <mat-card-title>{{live.nome}}</mat-card-title>
                   <mat-card-subtitle>
-                    23/05/2013 14:00
+                    {{live.dtHrInicio}}
                   </mat-card-subtitle>
                   <mat-list>
                     <mat-list-item >
-                      <h3 matLine>99 Inscritos</h3>
-                      <p matLine class="text-muted">R$ 4.950,00 arrecadados</p>
+                      <p matLine class="text-muted">{{live.descricao}}</p>
                     </mat-list-item>
                   </mat-list>
                 </mat-card-content>
-            </mat-card>
-          </div>
+              </mat-card>
+            </div>
           </div>
         </mat-card-content>
       </mat-tab>
     </mat-tab-group>
   </mat-card>
+</form>

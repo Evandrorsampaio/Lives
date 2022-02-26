@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\evandro\\Repositorio\\Lives\\back\\src\\Infra\\Data\\Data.csproj": {}
+    "D:\\evandro\\Repositorio\\Lives\\back\\src\\Infra\\Data\\Data.csproj": {}
   },
   "projects": {
-    "d:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj": {
+    "D:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "d:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj",
+        "projectPath": "D:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\evand\\.nuget\\packages\\",
-        "outputPath": "d:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\obj\\",
+        "outputPath": "D:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\evand\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -56,14 +56,14 @@
         }
       }
     },
-    "d:\\evandro\\Repositorio\\Lives\\back\\src\\Infra\\Data\\Data.csproj": {
+    "D:\\evandro\\Repositorio\\Lives\\back\\src\\Infra\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\evandro\\Repositorio\\Lives\\back\\src\\Infra\\Data\\Data.csproj",
+        "projectUniqueName": "D:\\evandro\\Repositorio\\Lives\\back\\src\\Infra\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "d:\\evandro\\Repositorio\\Lives\\back\\src\\Infra\\Data\\Data.csproj",
+        "projectPath": "D:\\evandro\\Repositorio\\Lives\\back\\src\\Infra\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\evand\\.nuget\\packages\\",
-        "outputPath": "d:\\evandro\\Repositorio\\Lives\\back\\src\\Infra\\Data\\obj\\",
+        "outputPath": "D:\\evandro\\Repositorio\\Lives\\back\\src\\Infra\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\evand\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -78,8 +78,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "d:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj": {
-                "projectPath": "d:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj"
+              "D:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\evandro\\Repositorio\\Lives\\back\\src\\Domain\\Domain.csproj"
               }
             }
           }

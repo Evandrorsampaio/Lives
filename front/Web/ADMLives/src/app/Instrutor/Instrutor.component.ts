@@ -25,10 +25,7 @@ export class InstrutorComponent implements OnInit {
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
     private router: Router
-    )
-  {
-
-  }
+  ) { }
 
   public get filtroLista(): string{
     return this.filtroListados;
@@ -55,7 +52,7 @@ export class InstrutorComponent implements OnInit {
 
 
   public getInstrutores(): void{
-    this.instrutorService.getInstrutores().subscribe(
+    this.instrutorService.getAll().subscribe(
       {
         next: (v: Instrutor[]) => {
           this.instrutores = v;

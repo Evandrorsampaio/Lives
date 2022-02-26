@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fRAghnNAwPvJSyZIAogJscWv+vQkGDM4xsaHrf3Yyl4w63RGp6OBuiwXQvF4BpdyE/l1lHSU8N3nUmW6S9tL3Q==",
+  "dgSpecHash": "1gPy+mj5uljM5kIeZLz8OAq+qb5kowY3MHQR9qk0gmnZ98C3Xur+jjH3rA8KmzA05Ec06WXDEKyJf08kLalSjg==",
   "success": true,
-  "projectFilePath": "d:\\evandro\\Repositorio\\Lives\\back\\src\\APP\\APP.csproj",
+  "projectFilePath": "D:\\evandro\\Repositorio\\Lives\\back\\src\\APP\\APP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\evand\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\evand\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

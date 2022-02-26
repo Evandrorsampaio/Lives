@@ -32,7 +32,8 @@
             <img mat-list-avatar src="../../../../assets/images/users/6.jpg" alt="Editar dados de {{instrutor.pessoa.nome}}">
             <h3 matLine>{{instrutor.pessoa.nome}}</h3>
             <p matLine class="text-muted">{{instrutor.pessoa.email}}</p>
-            <a [routerLink]="[ '/instrutordetalhe' , instrutor.id  ]">
+            <a  [routerLink]="[ 'cadastro' , instrutor.id  ]"
+                routerLinkActive="router-link-active" >
               Editar
             </a>
           </mat-list-item>
