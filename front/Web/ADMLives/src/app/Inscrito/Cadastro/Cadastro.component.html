@@ -1,65 +1,112 @@
-<mat-card>
-  <mat-tab-group>
-    <mat-tab label="Cadastro do Instrutor Fulano de tal">
-      <mat-card-content>
-        <!-- ============================================================== -->
-        <!-- column -->
-        <!-- ============================================================== -->
-        <form class="basic-form">
-          <div fxLayout="row wrap">
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <mat-form-field>
-                <input matInput placeholder="Nome">
-              </mat-form-field>
+<form>
+  <mat-card [formGroup]="form">
+    <mat-tab-group>
+      <mat-tab label="Cadastro do Inscrito(a) {{form.value.pessoa.nome}}">
+        <mat-card-content>
+          <fieldset class="basic-form" formGroupName="pessoa">
+            <div fxLayout="row wrap">
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100">
+                <mat-form-field>
+                  <input matInput placeholder="Nome" formControlName="nome">
+                </mat-form-field>
+                <mat-card-subtitle  *ngIf="form.controls['pessoa'].get('nome')?.invalid
+                                            && (form.controls['pessoa'].get('nome')?.dirty
+                                                || form.controls['pessoa'].get('nome')?.touched)">
+                    <div class="alert alert-danger" *ngIf="form.controls['pessoa'].get('nome')?.errors?.['required']">
+                      Nome é obrigatório.
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" form.controls['pessoa'].get('nome')?.errors?.['minlength']">
+                      Nome deve ter pelo menos 3 caracteres.
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" form.controls['pessoa'].get('nome')?.errors?.['maxlength']">
+                      Nome deve ter até 50 caracteres.
+                    </div>
+                </mat-card-subtitle>
+        </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100">
+                <mat-form-field>
+                  <input matInput placeholder="e-Mail" type="email" formControlName="email">
+                </mat-form-field>
+                <mat-card-subtitle  *ngIf="form.controls['pessoa'].get('email')?.invalid
+                                            && (form.controls['pessoa'].get('email')?.dirty
+                                                || form.controls['pessoa'].get('email')?.touched)">
+                    <div class="alert alert-danger" *ngIf="form.controls['pessoa'].get('email')?.errors?.['required']">
+                      E-mail é obrigatório.
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" form.controls['pessoa'].get('email')?.errors?.['email']">
+                      E-mail deve ser válido.
+                    </div>
+                </mat-card-subtitle>
+              </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100" >
+                <mat-form-field>
+                  <input matInput placeholder="Instagram" formControlName="instagram" >
+                </mat-form-field>
+                <mat-card-subtitle  *ngIf="form.controls['pessoa'].get('instagram')?.invalid
+                                            && (form.controls['pessoa'].get('instagram')?.dirty
+                                                || form.controls['pessoa'].get('instagram')?.touched)">
+                    <div class="alert alert-danger" *ngIf="form.controls['pessoa'].get('instagram')?.errors?.['required']">
+                      Instagram é obrigatório.
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" form.controls['pessoa'].get('instagram')?.errors?.['pattern']">
+                      Instagram deve ser válido.
+                    </div>
+                </mat-card-subtitle>
+              </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100">
+                <mat-form-field>
+                  <input matInput placeholder="Nascimento" formControlName="dtNascimento"
+                  [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <mat-card-subtitle  *ngIf="form.controls['pessoa'].get('dtNascimento')?.invalid
+                  && (form.controls['pessoa'].get('dtNascimento')?.dirty
+                      || form.controls['pessoa'].get('dtNascimento')?.touched)">
+                    <div class="alert alert-danger" *ngIf="form.controls['pessoa'].get('dtNascimento')?.errors?.['required']">
+                    Data de nascimento é obrigatório.
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" form.controls['pessoa'].get('dtNascimento')?.errors?.['date']">
+                      Data de nascimento deve ser válido.
+                    </div>
+                    </mat-card-subtitle>
+              </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="90" fxFlex="90" class=" text-right " >
+                <button mat-raised-button color="primary" (click)="this.Salvar()">Gravar</button>
+              </div>
+              <div fxFlex.gt-sm="10" fxFlex="10" class=" text-right " >
+                  <a [routerLink]="['..']" routerLinkActive="router-link-active" ><button mat-raised-button color="warn" >Voltar</button></a>
+              </div>
             </div>
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <mat-form-field>
-                <input matInput placeholder="e-Mail" type="email">
-              </mat-form-field>
-            </div>
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <mat-form-field>
-                <input matInput placeholder="Instagram" >
-              </mat-form-field>
-            </div>
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <mat-form-field>
-                <input matInput placeholder="Nascimento" type="date">
-              </mat-form-field>
-            </div>
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <button mat-raised-button color="primary">Gravar</button>
-            </div>
-          </div>
-        </form>
-      </mat-card-content>
-    </mat-tab>
-    <mat-tab label="Lives ministradas">
-      <mat-card-content>
-        <div class="d-flex no-blcok">
-          <div fxFlex.gt-sm="50%" >
-            <mat-card>
+          </fieldset>
+        </mat-card-content>
+      </mat-tab>
+      <mat-tab label="Lives com inscrição" *ngIf=" inscrito.inscricoes.length > 0 " >
+        <mat-card-content>
+          <div class="d-flex no-blcok">
+            <div fxFlex.gt-sm="50%" *ngFor="let inscricao of inscrito.inscricoes">
+              <mat-card>
                 <mat-card-content>
-                  <mat-card-title>Net 6 + EF Core</mat-card-title>
+                  <mat-card-title>{{inscricao.live.nome}}</mat-card-title>
                   <mat-card-subtitle>
-                    23/05/2013 14:00
+                    {{inscricao.live.dtHrInicio}}
                   </mat-card-subtitle>
                   <mat-list>
                     <mat-list-item >
-                      <h3 matLine>99 Inscritos</h3>
-                      <p matLine class="text-muted">R$ 4.950,00 arrecadados</p>
+                      <p matLine class="text-muted">{{inscricao.live.descricao}}</p>
                     </mat-list-item>
                   </mat-list>
                 </mat-card-content>
-            </mat-card>
-          </div>
+              </mat-card>
+            </div>
           </div>
         </mat-card-content>
       </mat-tab>
     </mat-tab-group>
   </mat-card>
+</form>

@@ -23,17 +23,16 @@
 
 <div fxLayout="row">
   <div fxFlex.gt-sm="100%" >
-    <mat-card *ngIf=" instrutoresFiltrados.length > 0 ">
-      <mat-card-content >
-        <mat-card-title>Instrutores localizados</mat-card-title>
-        <mat-card-subtitle>Instrutores que contém o texto informado no nome ou e-mail.</mat-card-subtitle>
-        <mat-list *ngFor="let instrutor of instrutoresFiltrados " >
-          <mat-list-item >
-            <img mat-list-avatar src="../../../../assets/images/users/6.jpg" alt="Editar dados de {{instrutor.pessoa.nome}}">
-            <h3 matLine>{{instrutor.pessoa.nome}}</h3>
-            <p matLine class="text-muted">{{instrutor.pessoa.email}}</p>
-            <a  [routerLink]="[ 'cadastro' , instrutor.id  ]"
-                routerLinkActive="router-link-active" >
+      <mat-card *ngIf=" instrutoresFiltrados.length > 0 ">
+        <mat-card-content >
+          <mat-card-title>Instrutores localizados</mat-card-title>
+          <mat-card-subtitle>Instrutores que contém o texto informado no nome ou e-mail.</mat-card-subtitle>
+          <mat-list *ngFor="let instrutor of instrutoresFiltrados " >
+            <mat-list-item >
+              <h3 matLine>{{instrutor.pessoa.nome}}</h3>
+              <p matLine class="text-muted">{{instrutor.pessoa.email}}</p>
+              <a  [routerLink]="[ 'cadastro' , instrutor.id  ]"
+              routerLinkActive="router-link-active" >
               Editar
             </a>
           </mat-list-item>
@@ -41,19 +40,19 @@
       </mat-card-content>
     </mat-card>
     <mat-card *ngIf=" instrutoresFiltrados.length == 0 ">
-    <mat-card-content >
-      <mat-card-title>Nenhum instrutor localizado</mat-card-title>
-      <mat-card-subtitle>Nenhum instrutor contém o texto informado no nome ou e-mail.</mat-card-subtitle>
-      <mat-list>
-        <mat-list-item>
-          <div class="message-widget contact-widget">
-            <div class="mail-contnet">
-              <span class="mail-desc"></span>
+      <mat-card-content >
+        <mat-card-title>Nenhum instrutor localizado</mat-card-title>
+        <mat-card-subtitle>Nenhum instrutor contém o texto informado no nome ou e-mail.</mat-card-subtitle>
+        <mat-list>
+          <mat-list-item>
+            <div class="message-widget contact-widget">
+              <div class="mail-contnet">
+                <span class="mail-desc"></span>
+              </div>
             </div>
-          </div>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

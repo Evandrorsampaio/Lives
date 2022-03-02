@@ -1,11 +1,13 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { DateFormatPipe } from 'src/app/helpers/DateFormat.pipe';
 import { Instrutor } from 'src/app/model/Instrutor';
 import { InstrutorService } from 'src/app/service/Instrutor/InstrutorService.service';
 import { Constants } from '../../util/constants';
+
 @Component({
   selector: 'app-Cadastro',
   templateUrl: './Cadastro.component.html',
@@ -13,26 +15,44 @@ import { Constants } from '../../util/constants';
 })
 
 export class CadastroComponent implements OnInit {
+  private readonly ModoInsercao = 'post';
+  private readonly ModoAtualizacao = 'put';
 
   constructor(
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private instrutorService: InstrutorService
-
+    private instrutorService: InstrutorService,
+    private snackBar: MatSnackBar,
+    private router: Router
     ) { }
 
     public instrutor!: any;
     public id = 0;
     public idParameter = '';
-
+    public modo = 'post';
     public form!: FormGroup;
 
-    ngOnInit() {
+    get isAtualizacao(): boolean{
+      return (this.modo === this.ModoAtualizacao);
+    }
+
+    get isInsercao(): boolean{
+      return (this.modo === this.ModoInsercao);
+    }
+
+    get f(): any{
+      //alert((this.form.controls['pessoa'] as FormGroup).controls['nome']);
+      return this.form.controls['pessoa'];
+    }
+
+    ngOnInit(): void{
       this.id = this.getIdParamenter();
 
       if(this.idParamIsValid()){
+        this.modo = this.ModoAtualizacao;
         this.carregaInstrutor(this.id);
       }else{
+        this.modo = this.ModoInsercao;
         this.carregaFormInclusao();
       }
     }
@@ -44,6 +64,7 @@ export class CadastroComponent implements OnInit {
       } else {
         return 0;
       }
+
     }
 
     public idParamIsValid(): boolean{
@@ -105,5 +126,58 @@ export class CadastroComponent implements OnInit {
       this.form = this.getForm();
     }
 
+    public Salvar(): void{
+      if(this.form.valid){
+        if( this.isInsercao ){
+          this.InserirInstrutor();
+        } else {
+          this.AtualizarInstrutor();
+        }
+      }
+
     }
+
+    public AtualizarInstrutor(): void{
+      this.instrutor = {id: this.id, ... this.form.value}
+      this.instrutorService.put( this.instrutor ).subscribe({
+        next : () => {
+          this.Mensagem('Instrutor atualizado.');
+        },
+        error : (error: any) => {
+          this.erroAtualizacao(error);
+        },
+        complete : () => {
+
+        }
+      });
+    }
+
+    public InserirInstrutor(): void{
+      this.instrutor = {id: this.id, ... this.form.value}
+      this.instrutorService.post( this.instrutor ).subscribe({
+        next : () => {
+          this.Mensagem('Instrutor inserido.');
+        },
+        error : (error: any) => {
+          this.erroAtualizacao(error);
+        },
+        complete : () => {
+
+        }
+      });
+    }
+
+    public goToCadastro(id: number ): void{
+      this.router.navigate([id], {relativeTo: this.activatedRoute});
+    }
+
+    public erroAtualizacao(error : any): void{
+      console.error(error);
+      this.Mensagem('Erro na atualização de instrutor.\n' + error.message );
+    }
+
+    public Mensagem(texto: string): void{
+      this.snackBar.open(texto, 'Fechar');
+    }
+}
 

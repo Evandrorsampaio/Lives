@@ -12,5 +12,4 @@ export interface Live {
   idInstrutor: number;
   instrutor: Instrutor;
   inscricoes: Inscricao[];
-
 }

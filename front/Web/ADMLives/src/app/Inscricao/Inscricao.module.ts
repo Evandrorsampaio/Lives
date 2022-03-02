@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { CadastroComponent } from './Cadastro/Cadastro.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 const inscricaoRoutes: Routes = [
   { path: '', component: InscricaoComponent },
@@ -28,6 +29,7 @@ const inscricaoRoutes: Routes = [
     MatCardModule,
     RouterModule.forChild(inscricaoRoutes),
   ],
-  declarations: [InscricaoComponent, CadastroComponent]
-})
+  declarations: [InscricaoComponent, CadastroComponent],
+  providers: [ { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }] ,
+  bootstrap: [InscricaoComponent, CadastroComponent]})
 export class InscricaoModule { }

@@ -4,7 +4,7 @@ import { Pessoa } from "./Pessoa";
 export interface Inscrito {
   id: number;
   ativo: boolean;
-  incricoes: Inscricao[];
+  inscricoes: Inscricao[];
   pessoaId: number;
   pessoa: Pessoa;
 }

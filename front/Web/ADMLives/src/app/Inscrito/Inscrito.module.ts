@@ -5,16 +5,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { DemoMaterialModule } from '../demo-material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartistModule } from 'ng-chartist';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { CadastroComponent } from './Cadastro/Cadastro.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 const inscritoRoutes: Routes = [
   { path: '', component: InscritoComponent },
-  { path: 'cadastro', component: CadastroComponent, }
+  { path: 'cadastro', component: CadastroComponent,
+    children: [
+      { path: ':id', component: CadastroComponent }
+  ]},
 ];
-
 
 @NgModule({
   imports: [
@@ -26,8 +29,11 @@ const inscritoRoutes: Routes = [
     FormsModule,
     MatListModule,
     MatCardModule,
+    ReactiveFormsModule,
     RouterModule.forChild(inscritoRoutes),
   ],
-  declarations: [InscritoComponent, CadastroComponent]
+  providers: [ { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }] ,
+  declarations: [InscritoComponent, CadastroComponent],
+  bootstrap: [InscritoComponent, CadastroComponent]
 })
 export class InscritoModule { }

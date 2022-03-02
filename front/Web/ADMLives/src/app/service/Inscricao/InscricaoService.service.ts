@@ -6,28 +6,28 @@ import { Inscricao } from '../../model/Inscricao';
 @Injectable({
   providedIn: 'root'
 })
-export class InscricaoServiceService {
+export class InscricaoService {
 
   baseURL = 'https://localhost:7009/api/Inscricao';
   constructor(private http: HttpClient) { }
 
-  public getInscricaos(): Observable<Inscricao[]>{
+  public getAll(): Observable<Inscricao[]>{
     return this.http.get<Inscricao[]>(this.baseURL);
   }
 
-  public getInscricaoById(id: number ): Observable<Inscricao>{
+  public getById(id: number ): Observable<Inscricao>{
     return this.http.get<Inscricao>(`${this.baseURL}/${id}`);
   }
 
-  public postInscricao(inscricao: Inscricao ): Observable<Inscricao>{
+  public post(inscricao: Inscricao ): Observable<Inscricao>{
     return this.http.post<Inscricao>(this.baseURL, inscricao);
   }
 
-  public putInscricao( inscricao: Inscricao): Observable<Inscricao[]>{
+  public put( inscricao: Inscricao): Observable<Inscricao[]>{
     return this.http.put<Inscricao[]>(`${this.baseURL}`, inscricao);
   }
 
-  public deleteInscricao(id: number): Observable<any>{
+  public delete(id: number): Observable<any>{
     return this.http.delete<string>(`${this.baseURL}/${id}`);
   }
 

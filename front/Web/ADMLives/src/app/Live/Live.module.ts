@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LiveComponent } from './Live.component';
 import { CadastroComponent } from './Cadastro/Cadastro.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -9,11 +8,16 @@ import { FormsModule } from '@angular/forms';
 import { ChartistModule } from 'ng-chartist';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DemoMaterialModule } from '../demo-material-module';
+import { LiveComponent } from './Live.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 const liveRoutes: Routes = [
 
   { path: '', component: LiveComponent },
-  { path: 'cadastro', component: CadastroComponent, }
+  { path: 'cadastro', component: CadastroComponent,
+    children: [
+      { path: ':id', component: CadastroComponent }
+  ]},
 
 ];
 
@@ -30,6 +34,9 @@ const liveRoutes: Routes = [
     MatCardModule,
     RouterModule.forChild(liveRoutes),
   ],
-  declarations: [LiveComponent, CadastroComponent]
+  declarations: [LiveComponent, CadastroComponent],
+  providers: [ { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }] ,
+  bootstrap: [LiveComponent, CadastroComponent]
+
 })
 export class LiveModule { }

@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { CadastroComponent } from './Cadastro/Cadastro.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 const instrutorRoutes: Routes = [
 
@@ -33,6 +34,7 @@ const instrutorRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(instrutorRoutes),
   ],
+  providers: [ { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }] ,
   declarations: [InstrutorComponent, CadastroComponent],
   bootstrap: [InstrutorComponent, CadastroComponent]
 

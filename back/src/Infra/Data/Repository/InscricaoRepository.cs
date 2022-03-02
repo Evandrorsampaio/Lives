@@ -19,7 +19,11 @@ namespace Data.Repository
         {
                 IQueryable<InscricaoEntity> query = _context.Inscricoes.AsNoTracking();
 
-                query = query.OrderBy(i => i.id );
+                query = query.Include(inscricao => inscricao.inscrito).ThenInclude(inscrito => inscrito.pessoa)
+                            .Include(inscricao => inscricao.live)
+                                .ThenInclude(live => live.instrutor)
+                                    .ThenInclude(instrutor => instrutor.pessoa)
+                            .OrderBy(i => i.id );
 
                 return await query.FirstOrDefaultAsync(); 
         }

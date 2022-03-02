@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Instrutor } from '../model/Instrutor';
 import { InstrutorService } from '../service/Instrutor/InstrutorService.service';
+import { StrFunctions } from '../util/StrFunctions';
 
 @Component({
   selector: 'app-Instrutor',
@@ -11,8 +12,6 @@ import { InstrutorService } from '../service/Instrutor/InstrutorService.service'
   styleUrls: ['./Instrutor.component.css']
 })
 export class InstrutorComponent implements OnInit {
-
-
   private filtroListados = '';
 
   public instrutores: Instrutor[] = [ ];
@@ -21,7 +20,6 @@ export class InstrutorComponent implements OnInit {
 
   constructor(
     private instrutorService: InstrutorService,
-
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
     private router: Router
@@ -39,8 +37,8 @@ export class InstrutorComponent implements OnInit {
   public filtrarLista(filtrarPor: string): Instrutor[] {
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.instrutores.filter(
-      (instrutor: any) => instrutor.pessoa.nome.toLocaleLowerCase().indexOf(filtrarPor) !== -1 ||
-                        instrutor.pessoa.email.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+      (instrutor: any) => StrFunctions.Contem(instrutor.pessoa.nome, filtrarPor) ||
+                          StrFunctions.Contem(instrutor.pessoa.email, filtrarPor)
     ) ;
   }
 
@@ -67,9 +65,5 @@ export class InstrutorComponent implements OnInit {
         }
       }
     );
-  }
-
-  public DetalharInstrutor(id: number): void{
-    this.router.navigate([`eventos/detalhe/${id}`]);
   }
 }
