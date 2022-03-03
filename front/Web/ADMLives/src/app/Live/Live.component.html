@@ -1,0 +1,59 @@
+<div fxLayout="row">
+  <div fxFlex.gt-sm="100%" >
+    <mat-card>
+      <div class="p-20 bg-info position-relative">
+        <h2 class="card-title text-white m-0">Lives</h2>
+        <h4 class="card-subtitle text-white m-0 op-5">Localize ou cadastre a live desejada.</h4>
+        <a [routerLink]="['.', 'cadastro']" routerLinkActive="router-link-active" >
+          <button mat-mini-fab color="accent" class="add-contact">+</button>
+        </a>
+      </div>
+      <div class="message-box contact-box p-20">
+        <mat-card-content>
+          <mat-accordion>
+            <mat-form-field>
+              <input matInput placeholder="Nome, descrição ou nome do instrutor" [(ngModel)]="filtroLista">
+            </mat-form-field>
+          </mat-accordion>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div fxLayout="row">
+  <div fxFlex.gt-sm="100%" >
+    <mat-card  *ngIf=" livesFiltrados.length > 0 ">
+      <mat-card-content >
+        <mat-card-title>Lives localizadas</mat-card-title>
+        <mat-card-subtitle>Lives que contém o texto informado no nome, descrição ou nome do instrutor.</mat-card-subtitle>
+        <mat-list *ngFor="let live of livesFiltrados ">
+          <mat-list-item >
+            <h3 matLine>{{live.nome}} {{live.dtHrInicio| date:  'dd/MM/yyyy HH:mm' }}</h3>
+            <p matLine class="text-muted">{{live.descricao}} por {{live.instrutor.pessoa.nome}} </p>
+            <a [routerLink]="[ '.','cadastro' , live.id  ]">
+              Editar
+            </a>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+    <mat-card *ngIf=" livesFiltrados.length == 0 ">
+    <mat-card-content >
+      <mat-card-title>Nenhuma live localizada</mat-card-title>
+      <mat-card-subtitle>
+        Nenhuma live contém o texto informado no nome, descriçao ou no nome do instrutor.
+      </mat-card-subtitle>
+      <mat-list>
+        <mat-list-item>
+          <div class="message-widget contact-widget">
+            <div class="mail-contnet">
+              <span class="mail-desc"></span>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>

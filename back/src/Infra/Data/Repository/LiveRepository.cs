@@ -22,7 +22,10 @@ namespace Data.Repository
         {
             IQueryable<LiveEntity> query = _context.Lives.AsNoTracking();
                 query = query.Include(l => l.inscricoes)
-                                .Include(l => l.instrutor);
+                                        .ThenInclude(inscricao => inscricao.inscrito)
+                                                .ThenInclude(inscrito => inscrito.pessoa)
+                                .Include(l => l.instrutor)
+                                       .ThenInclude(instrutor => instrutor.pessoa);
                                 
                 query = query.OrderByDescending(l => l.dtHrInicio);
 

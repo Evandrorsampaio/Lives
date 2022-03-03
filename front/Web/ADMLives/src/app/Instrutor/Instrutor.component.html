@@ -1,0 +1,58 @@
+<div fxLayout="row">
+  <div fxFlex.gt-sm="100%" >
+    <mat-card>
+      <div class="p-20 bg-info position-relative">
+        <h2 class="card-title text-white m-0">Instrutores</h2>
+        <h4 class="card-subtitle text-white m-0 op-5">Localize ou cadastre o instrutor desejado.</h4>
+        <a [routerLink]="['.', 'cadastro']" routerLinkActive="router-link-active" >
+          <button mat-mini-fab color="accent" class="add-contact">+</button>
+        </a>
+      </div>
+      <div class="message-box contact-box p-20">
+        <mat-card-content>
+          <mat-accordion>
+            <mat-form-field>
+              <input matInput placeholder="Nome ou e-Mail" [(ngModel)]="filtroLista">
+            </mat-form-field>
+          </mat-accordion>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div fxLayout="row">
+  <div fxFlex.gt-sm="100%" >
+      <mat-card *ngIf=" instrutoresFiltrados.length > 0 ">
+        <mat-card-content >
+          <mat-card-title>Instrutores localizados</mat-card-title>
+          <mat-card-subtitle>Instrutores que contém o texto informado no nome ou e-mail.</mat-card-subtitle>
+          <mat-list *ngFor="let instrutor of instrutoresFiltrados " >
+            <mat-list-item >
+              <h3 matLine>{{instrutor.pessoa.nome}}</h3>
+              <p matLine class="text-muted">{{instrutor.pessoa.email}}</p>
+              <a  [routerLink]="[ 'cadastro' , instrutor.id  ]"
+              routerLinkActive="router-link-active" >
+              Editar
+            </a>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+    <mat-card *ngIf=" instrutoresFiltrados.length == 0 ">
+      <mat-card-content >
+        <mat-card-title>Nenhum instrutor localizado</mat-card-title>
+        <mat-card-subtitle>Nenhum instrutor contém o texto informado no nome ou e-mail.</mat-card-subtitle>
+        <mat-list>
+          <mat-list-item>
+            <div class="message-widget contact-widget">
+              <div class="mail-contnet">
+                <span class="mail-desc"></span>
+              </div>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
