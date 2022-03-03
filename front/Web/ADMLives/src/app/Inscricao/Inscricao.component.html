@@ -1,5 +1,6 @@
 <div fxLayout="row">
   <div fxFlex.gt-sm="100%" >
+    {{inscricoes | json}}
     <mat-card>
       <div class="p-20 bg-info position-relative">
         <h2 class="card-title text-white m-0">Inscrições</h2>
@@ -12,7 +13,7 @@
         <mat-card-content>
           <mat-accordion>
             <mat-form-field>
-              <input matInput placeholder="Inscrito, Intrutor ou Live" [(ngModel)]="filtroLista">
+              <input matInput placeholder="Inscrito, Instrutor ou Live" [(ngModel)]="filtroLista">
             </mat-form-field>
           </mat-accordion>
         </mat-card-content>
@@ -23,14 +24,14 @@
 
 <div fxLayout="row">
   <div fxFlex.gt-sm="100%" >
-    <mat-card *ngIf=" inscricoesFiltrados.length > 0 ">
+    <mat-card *ngIf=" inscricoesFiltradas.length > 0 ">
       <mat-card-content >
         <mat-card-title>Inscrições localizadas</mat-card-title>
         <mat-card-subtitle>Inscrições que contém o texto informado no nome do incrito, do instrutor ou da live e descrição desta.</mat-card-subtitle>
-        <mat-list *ngFor="let inscricao of inscricoesFiltrados ">
+        <mat-list *ngFor="let inscricao of inscricoesFiltradas ">
           <mat-list-item >
-            <h3 matLine>{{inscricao.inscrito.pessoa.nome}} na live {{inscricao.live.nome}}</h3>
-            <p matLine class="text-muted">{{inscricao.live.descricao}}</p>
+            <h3 matLine>{{inscricao.id}} na live {{inscricao.vencimento | date: 'dd/MM/yyyy'}}</h3>
+            <p matLine class="text-muted">{{inscricao.idLive}}</p>
             <a [routerLink]="[ '.','cadastro' , inscricao.id  ]">
               Editar
             </a>
@@ -38,7 +39,7 @@
         </mat-list>
       </mat-card-content>
     </mat-card>
-    <mat-card *ngIf=" inscricoesFiltrados.length == 0 ">
+    <mat-card *ngIf=" inscricoesFiltradas.length == 0 ">
     <mat-card-content >
       <mat-card-title>Nenhuma inscrição localizada</mat-card-title>
       <mat-card-subtitle>Nenhuma inscrição contém o texto informado no nome do incrito, do instrutor ou da live ou descrição desta.</mat-card-subtitle>

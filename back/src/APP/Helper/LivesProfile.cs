@@ -36,6 +36,9 @@ namespace APP.Helper
             CreateMap<PessoaDto, InscritoEntity>().ReverseMap();
 
             CreateMap<InscricaoEntity, InscricaoDto>().ReverseMap();
+            CreateMap<IEnumerable<InscricaoEntity[]>, InscricaoDto>().ReverseMap();
+            CreateMap<IEnumerable<InscricaoEntity>, InscricaoDto[]>().ReverseMap();
+            CreateMap<InscricaoEntity[], InscricaoDto[]>().ReverseMap();
             CreateMap<LiveEntity, InscricaoDto>().ReverseMap();
             CreateMap<LiveDto, InscricaoEntity>().ReverseMap();
             CreateMap<InscritoEntity, InscricaoDto>().ReverseMap();

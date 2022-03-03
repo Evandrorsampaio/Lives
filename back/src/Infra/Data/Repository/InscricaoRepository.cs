@@ -15,17 +15,15 @@ namespace Data.Repository
         }
 
 
-        public async Task<InscricaoEntity> GetAllAsync()
+        public async Task<InscricaoEntity[]> GetAllAsync()
         {
                 IQueryable<InscricaoEntity> query = _context.Inscricoes.AsNoTracking();
 
                 query = query.Include(inscricao => inscricao.inscrito).ThenInclude(inscrito => inscrito.pessoa)
                             .Include(inscricao => inscricao.live)
-                                .ThenInclude(live => live.instrutor)
-                                    .ThenInclude(instrutor => instrutor.pessoa)
                             .OrderBy(i => i.id );
 
-                return await query.FirstOrDefaultAsync(); 
+                return await query.ToArrayAsync(); 
         }
         public async Task<InscricaoEntity> GetByIdAsync(int id)
         {

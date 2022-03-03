@@ -8,7 +8,7 @@ namespace Data.Interfaces
 {
     public interface IInscricaoRepository
     {
-        Task<InscricaoEntity> GetAllAsync();
+        Task<InscricaoEntity[]> GetAllAsync();
         Task<InscricaoEntity> GetByIdAsync(int id);
         Task<InscricaoEntity[]> GetByInscritoAsync(int idInscrito);            
         Task<InscricaoEntity[]> GetByLiveAsync(int idLive);            

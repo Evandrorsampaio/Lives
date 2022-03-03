@@ -16,7 +16,7 @@ export class InscricaoComponent implements OnInit {
   private filtroListados = '';
 
   public inscricoes: Inscricao[] = [ ];
-  public inscricoesFiltrados: Inscricao[] = [ ];
+  public inscricoesFiltradas: Inscricao[] = [ ];
 
 
   constructor(
@@ -31,8 +31,10 @@ export class InscricaoComponent implements OnInit {
   }
 
   public set filtroLista(value: string){
+
+
     this.filtroListados = value;
-    this.inscricoesFiltrados = this.filtroLista ? this.filtrarLista(this.filtroLista) : this.inscricoes;
+    this.inscricoesFiltradas = this.filtroLista ? this.filtrarLista(this.filtroLista) : this.inscricoes;
   }
 
   public filtrarLista(filtrarPor: string): Inscricao[] {
@@ -46,17 +48,17 @@ export class InscricaoComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getinscricoes();
+    this.getInscricoes();
 
   }
 
 
-  public getinscricoes(): void{
+  public getInscricoes(): void{
     this.inscricaoService.getAll().subscribe(
       {
         next: (v: Inscricao[]) => {
           this.inscricoes = v;
-          this.inscricoesFiltrados = this.inscricoes;
+          this.inscricoesFiltradas = this.inscricoes;
 
         },
         error: (error: any) =>{
